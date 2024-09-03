@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sobre Valorant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0e0e0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .quiz-container {
+            width: 100%;
+            max-width: 800px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        h1 {
+            color: #ff4655;
+            margin-bottom: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .question img {
+            width: 200px;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px;
+        }
+        .question p {
+            margin-bottom: 10px;
+        }
+        .question label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .question input[type="radio"] {
+            margin-right: 10px;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #ff4655;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #cc3a46;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Quiz sobre Valorant</h1>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. Quem é o agente mostrado na imagem abaixo?</p>
+                <img src="https://example.com/agent-image.jpg" alt="Imagem do Agente">
+                <label><input type="radio" name="q1" value="A"> Jett</label>
+                <label><input type="radio" name="q1" value="B"> Phoenix</label>
+                <label><input type="radio" name="q1" value="C"> Omen</label>
+                <label><input type="radio" name="q1" value="D"> Viper</label>
+            </div>
+            <div class="question">
+                <p>2. Qual é a habilidade especial do agente Sage?</p>
+                <label><input type="radio" name="q2" value="A"> Smoke Screen</label>
+                <label><input type="radio" name="q2" value="B"> Resurrect</label>
+                <label><input type="radio" name="q2" value="C"> Flashbang</label>
+                <label><input type="radio" name="q2" value="D"> Shock Bolt</label>
+            </div>
+            <div class="question">
+                <p>3. Qual é o nome do mapa mostrado na imagem abaixo?</p>
+                <img src="https://example.com/map-image.jpg" alt="Imagem do Mapa">
+                <label><input type="radio" name="q3" value="A"> Bind</label>
+                <label><input type="radio" name="q3" value="B"> Haven</label>
+                <label><input type="radio" name="q3" value="C"> Split</label>
+                <label><input type="radio" name="q3" value="D"> Ascent</label>
+            </div>
+            <div class="question">
+                <p>4. Qual dessa armas é uma escopeta?</p>
+                <label><input type="radio" name="q4" value="A"> Vandal</label>
+                <label><input type="radio" name="q4" value="B"> Phantom</label>
+                <label><input type="radio" name="q4" value="C"> Judge</label>
+                <label><input type="radio" name="q4" value="D"> Operator</label>
+            </div>
+            <button type="button" class="btn" onclick="submitQuiz()">Enviar Respostas</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            const answers = {
+                q1: 'C', // Omen
+                q2: 'B', // Resurrect
+                q3: 'B', // Haven
+                q4: 'C'  // Judge
+            };
+
+            let score = 0;
+            const form = document.getElementById('quizForm');
+            const formData = new FormData(form);
+
+            for (let [question, answer] of formData.entries()) {
+                if (answers[question] === answer) {
+                    score++;
+                }
+            }
