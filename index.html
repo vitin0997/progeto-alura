@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #e0e0e0;
+            background-color: #c51b1b;
             color: #333;
             display: flex;
             justify-content: center;
@@ -20,6 +20,7 @@
             width: 100%;
             max-width: 800px;
             background-color: #fff;
+            margin-top: auto;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -73,7 +74,7 @@
         <form id="quizForm">
             <div class="question">
                 <p>1. Quem é o agente mostrado na imagem abaixo?</p>
-                <img src="omen.jfif" alt="Imagem do Agente">
+                <img style="size: 110px;" src="omen.jfif" alt="Imagem do Agente">
                 <label><input type="radio" name="q1" value="A"> Jett</label>
                 <label><input type="radio" name="q1" value="B"> Phoenix</label>
                 <label><input type="radio" name="q1" value="C"> Omen</label>
@@ -124,3 +125,9 @@
                     score++;
                 }
             }
+
+            document.getElementById('result').innerText = `Sua pontuação é ${score} de ${Object.keys(answers).length}`;
+        }
+    </script>
+</body>
+</html>
